@@ -6,20 +6,12 @@
 
 get_ipython().system('pip install kagglehub')
 
-
-# In[23]:
-
-
 import kagglehub
 
 # Download latest version
 path = kagglehub.dataset_download("rounakbanik/the-movies-dataset")
 
 print("Path to dataset files:", path)
-
-
-# In[32]:
-
 
 #Install required packages
 get_ipython().system('pip install kaggle scikit-learn pandas numpy')
@@ -37,10 +29,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import LinearSVC
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.metrics import classification_report, hamming_loss
-
-
-# In[33]:
-
 
 # Download the dataset
 print("Downloading dataset...")
@@ -78,12 +66,6 @@ y = df['genres']
 # Convert text to TF-IDF vectors
 tfidf = TfidfVectorizer(max_features=5000, stop_words='english')
 X_tfidf = tfidf.fit_transform(X)
-
-# Convert genres to binary multi-label format
-
-
-# In[ ]:
-
 
 mlb = MultiLabelBinarizer()
 y_binary = mlb.fit_transform(y)
@@ -167,16 +149,6 @@ else:
     sample_pred = best_clf.predict(sample_tfidf)
 predicted_genres = mlb.inverse_transform(sample_pred)
 print(f"Predicted genres for sample plot: {predicted_genres}")
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
 
 
 
